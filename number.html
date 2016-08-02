@@ -1,0 +1,214 @@
+<head>
+	<script src="jq.js"></script>	
+	<style>
+		body {background-color: powderblue;}
+		.chooserw{
+			float:left;
+		}
+		#mynumber,#mynumber01,#multiple,#mynumberresultrw,#mynumberresultrw01,#mynumberresultrw02,#mynumberresultrw03{
+			color: white;
+			font-size: 250%;
+			padding-right:32px;
+			width:128px;
+		}
+	
+		#mynumberresult,#mynumberresult01,#mynumberresult02,#mynumberresult03{
+			color: white;
+			font-size: 250%;
+			padding-right:32px;
+		}
+		#rightwrong,#rightwrong01,#rightwrong02,#rightwrong03{
+			display:none;
+		}
+	</style>	
+	<script>
+		$( document ).ready(function() {
+			//Cap nhat toan tu luc khoi tao
+			var toantu01 = Math.floor(Math.random() * 32);
+			var toantu02 = Math.floor(Math.random() * 32);
+			$('#mynumber').text(toantu01);
+			$('#mynumber01').text(toantu02);			
+			$("#rightwrong").hide();
+			$("#rightwrong01").hide();
+			$("#rightwrong02").hide();
+			$("#rightwrong03").hide();
+			$("#rightwrong > .right").hide();
+			$("#rightwrong > .wrong").hide();
+			$("#rightwrong01 > .right").hide();
+			$("#rightwrong01 > .wrong").hide();
+			$("#rightwrong02 > .right").hide();
+			$("#rightwrong02 > .wrong").hide();
+			$("#rightwrong03 > .right").hide();
+			$("#rightwrong03 > .wrong").hide();
+			//console.log( "ready!" );
+			var toantu01 = $('#mynumber').text();
+			var toantu02 = $('#mynumber01').text();
+			console.log( toantu01 * toantu02);
+			var myresults = ["#mynumberresult", "#mynumberresult01", "#mynumberresult02","#mynumberresult03"]; 
+			var myresult = Math.floor(Math.random() * 65534);
+			var myresult01 = Math.floor(Math.random() * 65534);
+			var myresult02 = Math.floor(Math.random() * 65534);
+			var myresult03 = Math.floor(Math.random() * 65534);
+			var randomindex = Math.floor(Math.random() * 3);
+			var myresult = toantu01 * toantu02;
+			//$(myresults[randomindex]).text(myresult);
+			if(randomindex == 0){
+				$(myresults[0]).text(myresult);
+				$(myresults[1]).text(myresult01);
+				$(myresults[2]).text(myresult02);
+				$(myresults[3]).text(myresult03);
+			}
+			
+			if(randomindex == 1){
+				$(myresults[0]).text(myresult01);
+				$(myresults[1]).text(myresult);
+				$(myresults[2]).text(myresult02);
+				$(myresults[3]).text(myresult03);
+			}
+			
+			if(randomindex == 2){
+				$(myresults[0]).text(myresult01);
+				$(myresults[1]).text(myresult02);
+				$(myresults[2]).text(myresult);
+				$(myresults[3]).text(myresult03);
+			}
+			
+			if(randomindex == 3){
+				$(myresults[0]).text(myresult01);
+				$(myresults[1]).text(myresult02);
+				$(myresults[2]).text(myresult03);
+				$(myresults[3]).text(myresult);
+			}
+
+			$('.chooserw').click(function() {
+				//console.log(randomindex);
+				if($('#radioresult').is(':checked')) {
+					cmpresult = 0;
+					if(cmpresult == randomindex){
+						console.log("Ban da chon Dung ket qua");
+						$("#rightwrong").show();
+						$("#rightwrong > .right").show();
+						$("#rightwrong > .wrong").hide();
+						location.reload();
+						
+						
+					}else{
+						console.log("Ban da chon Sai ket qua");
+						$("#rightwrong").show();
+						$("#rightwrong > .right").hide();
+						$("#rightwrong > .wrong").show();
+						
+					}
+				}				
+				if($('#radioresult01').is(':checked')) {
+					cmpresult = 1;
+					if(cmpresult == randomindex){
+						console.log("Ban da chon Dung ket qua");
+						$("#rightwrong01").show();
+						$("#rightwrong01 > .right").show();
+						$("#rightwrong01 > .wrong").hide();
+						location.reload();
+						
+					}else{
+						console.log("Ban da chon Sai ket qua");
+						$("#rightwrong01").show();
+						$("#rightwrong01 > .right").hide();
+						$("#rightwrong01 > .wrong").show();
+					}
+				}
+				
+				if($('#radioresult02').is(':checked')) {
+					cmpresult = 2;
+					if(cmpresult == randomindex){
+						console.log("Ban da chon Dung ket qua");
+						$("#rightwrong02").show();
+						$("#rightwrong02 > .right").show();
+						$("#rightwrong02 > .wrong").hide();
+						location.reload();
+					}else{
+						console.log("Ban da chon Sai ket qua");
+						$("#rightwrong02").show();
+						$("#rightwrong02 > .right").hide();
+						$("#rightwrong02 > .wrong").show();
+					}
+					
+				}
+				
+				if($('#radioresult03').is(':checked')) {
+					cmpresult = 3;
+					if(cmpresult == randomindex){
+						console.log("Ban da chon Dung ket qua");
+						$("#rightwrong03").show();
+						$("#rightwrong03 > .right").show();
+						$("#rightwrong03 > .wrong").hide();
+						location.reload();
+					}else{
+						console.log("Ban da chon Sai ket qua");
+						$("#rightwrong03").show();
+						$("#rightwrong03 > .right").hide();
+						$("#rightwrong03 > .wrong").show();
+					}
+				}
+				
+				console.log(cmpresult);
+			});
+
+
+		});	
+	</script>
+</head>
+<body>
+	<div id="toantu">
+		<div id="mynumber" style="float:left;width:64;">8</div>
+		<div id="multiple" style="float:left">x</div>
+		<div id="mynumber01" style="float:left;width:64">4</div>
+	</div>	
+	<div class="breakdiv"></div>
+	<div id="ketqua">
+		<div class="chooserw">
+			<div id="mynumberresultrw">
+				<input type="radio" id="radioresult" name="rightorwrong" value="result" >A<br>
+			</div>
+			<div id="rightwrong">
+				<img class="right" src="rightimg.png" width=32/>
+				<img class="wrong" src="wrongimg.png" width=32/>
+			</div>
+			<div id="mynumberresult" style="float:left">Result01&nbsp</div>
+		</div>
+		
+		<div class="chooserw">
+			<div id="mynumberresultrw01">
+				<input type="radio" id="radioresult01" name="rightorwrong" value="result" >B<br>
+			</div>
+			<div id="rightwrong01">
+				<img class="right" src="rightimg.png" width=32/>
+				<img class="wrong" src="wrongimg.png" width=32/>
+			</div>
+			<div id="mynumberresult01" style="float:left">Result02&nbsp</div>
+		</div>
+		
+		<div class="chooserw">
+			<div id="mynumberresultrw02">
+				<input type="radio" id="radioresult02" name="rightorwrong" value="result" >C<br>
+			</div>	
+			<div id="rightwrong02">
+				<img id="right" src="rightimg.png" width=32/>
+				<img id="wrong" src="wrongimg.png" width=32/>
+			</div>
+			<div id="mynumberresult02" style="float:left">Result03&nbsp</div>
+		</div>
+
+		<div class="chooserw">
+			<div id="mynumberresultrw03">
+				<input type="radio" id="radioresult03" name="rightorwrong" value="result" >D<br>
+			</div>
+			<div id="rightwrong03">
+				<img id="right" src="rightimg.png" width=32/>
+				<img id="wrong" src="wrongimg.png" width=32/>
+			</div>
+			<div id="mynumberresult03" style="float:left">Result04&nbsp</div>
+		</div>
+	</div>	
+</body>
+<footer>
+</footer>
